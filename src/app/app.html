@@ -1,0 +1,89 @@
+<app-header></app-header>
+
+<main>
+  <h1 class="text-3xl flex justify-center">Elements BookNest</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!--USUARIS-->
+    <section class="md:col-span-1">
+    <h1 class="p-2 bg-blue-200 rounded-lg my-2 text-center font-bold text-xl">Usuaris</h1>
+
+      @for (user of users; track user.id){
+        <button (click)=selectUser(user.id) class="block w-full bg-blue-500 text-white p-3 rounded-lg mb-2">
+          {{ user.name }}
+        </button>
+      }
+
+    </section>
+
+    <!--LLIBRES-->
+    <section class="md:col-span-2">
+    <h1 class="p-2 bg-blue-200 rounded-lg my-2 text-center font-bold text-xl">Llibres</h1>
+
+      @if(selectedUserId !== null){
+
+        @for (book of selectedBooks; track book.id) {
+          <div class="bg-gray-200 p-3 rounded-lg mb-2">
+            {{ book.title }}
+          </div>
+        }
+      }
+
+      @if(selectedBooks.length === 0){
+        <p>Es buida</p>
+      }
+
+    </section>
+
+  </div>
+  
+  <h2 class="font-bold text-3xl text-center">Targetes extra</h2> <br>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full gap-4">
+
+    <section class="bg-red-200 p-4">
+      <p>Nom</p>
+      <p class="w-48 h-48">FOTO</p>
+      <p>Descripcio</p>
+    </section>
+
+    <section class="bg-blue-200 p-4">
+      <p>Nom</p>
+      <p class="w-48 h-48">FOTO</p>
+      <p>Descripcio</p>
+    </section>
+
+    <section class="bg-green-200 p-4">
+      <p>Nom</p>
+      <p class="w-48 h-48">FOTO</p>
+      <p>Descripcio</p>
+    </section>
+
+    <section class="bg-yellow-200 p-4">
+      <p>Nom</p>
+      <p class="w-48 h-48">FOTO</p>
+      <p>Descripcio</p>
+    </section>
+
+  </div>
+
+
+
+  <div class="flex grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+
+    <section class="md:col-span-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere placeat, iusto, labore ea omnis consequuntur odit exercitationem consequatur voluptates vero sint? Assumenda, eaque? Nisi, laudantium consectetur vero facere blanditiis nostrum.
+    </section>
+
+    <section class="md:col-span-2">
+      <img src="../../public/favicon.ico" alt="" class="w-150 h-150 m-10">
+    </section>
+
+  </div>
+
+
+</main>
+
+<br>
+<app-footer></app-footer>
