@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<main>
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+
+    <section class="md_col-span-1 bg-gray-200 p-6 rounded-lg">
+        <p>HOLA 1</p>
+        <p>Breu Descripcio</p>
+
+        <a href="https://es.wikipedia.org/wiki/%C2%A1Hola!"class="inline-block rounded-lg px-4 py-2 bg-yellow-200 hover:bg-yellow-300">
+            Mes info de hola
+        </a>
+
+    </section>
+
+    <section class="md_col-span-1 bg-red-200 p-6 rounded-lg">
+        <p>HOLA 2</p>
+        <p>Breu Descripcio</p>
+    </section>
+    <section class="md_col-span-1 bg-red-200 p-6 rounded-lg">
+        <p>HOLA 2</p>
+        <p>Breu Descripcio</p>
+    </section>
+
+</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+
+        <section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam cum laborum veritatis porro harum ullam similique, iste vero nostrum et dolores ipsum doloremque accusamus facere non consectetur. Quo, voluptas.</p>
+        </section>
+
+        <section class="bg-blue-200">
+            <img src="" alt="foto" class="p-50">
+        </section>
+
+    </div>
+
+    <div class=" flex justify-center py-10">
+        <a href="" class=" px-4 py-6 bg-blue-500 rounded-lg shadow-md text-white ">
+        Botón misteriós
+        </a>
+    </div>
+
+
+    <h1 class="text-3xl flex justify-center">Elements BookNest</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section class="md:col-span-1">
+        <h1 class="p-2 bg-blue-200 rounded-lg my-2 text-center font-bold text-xl">Usuaris</h1>
+        
+            @for (user of users; track user.id){
+            <button (click)=selectUser(user.id) class="block w-full bg-blue-500 text-white p-3 rounded-lg mb-2">
+            {{ user.name }}
+            </button>
+            }>
+
+        </section>
+        
+
+        <section class="md:col-span-2 scroll-mt-20" id="hola">
+        <h1 class="p-2 bg-blue-200 rounded-lg my-2 text-center font-bold text-xl">Llibres</h1>
+        
+            @if (selectedUserId !== null) {
+                @for (book of selectedBooks; track book.id) {
+                    <div class=" bg-gray-200 rounded-lg p-2 my-2  ">{{book.title}}</div>
+                
+                }
+
+                @if (selectedBooks.length === 0) {
+                    <p>Es buida</p>
+                }   
+            }
+
+            @else {
+                    <p>No coincideix</p>
+                }
+        </section>
+        
+    </div>
+
+
+</main>
+
+
+<app-footer></app-footer>
